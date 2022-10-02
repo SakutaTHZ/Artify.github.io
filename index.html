@@ -8,81 +8,19 @@
 </head>
 <body>
 	<nav>
-		<div class="searchBar">
-			<input type="text" name="search" id="search" placeholder="search">
+		<div class="searchBox">
 			<button type="submit">
-				<img src="images/logos/search.png" alt="search">
+				<img src="images/logos/search.png" alt="">
 			</button>
+			<input type="text" name="search" id="searchBox">
 		</div>
-		<div class="links">
-			<a href="#home" class="list active" id="home">
-				<img src="images/logos/home.png" alt="home">
-				<span class="title">
-					Home
-				</span>
-			</a>
-			<a href="#store" class="list" id="store">
-				<img src="images/logos/store.png" alt="store">
-				<span class="title">
-					Store
-				</span>
-			</a>
-			<a href="#help" class="list" id="help">
-				<img src="images/logos/help.png" alt="help">
-				<span class="title">
-					Help
-				</span>
-			</a>
-			<a href="#setting" class="list" id="setting">
-				<img src="images/logos/setting.png" alt="setting">
-				<span class="title">
-					Setting
-				</span>
-			</a>
-			<span class="indicator"></span>
-		</div>
-		<div class="profile">
-			<img src="images/logos/user.png" alt="user">
-			<span class="activity"></span>
-			<div class="profileDetailBox">
-				<div class="userRow profileDetailBoxRow">
-					<img src="images/logos/user.png" alt="user">
-					<div class="userRowDetails">
-						<h4>Sakuta</h4>
-						<p>sakutaseiya@gmail.com</p>
-					</div>
-				</div>
-				<div class="personalRow">
-					<div class="options">
-						<img class="icon" src="images/logos/store.png" alt="gallery">
-						<h4>Gallery</h4>
-						<h4 class="number"> 4 </h4>	
-					</div>
-					<div class="options">
-						<img class="icon" src="images/logos/following.png" alt="gallery">
-						<h4>Followers</h4>
-						<h4 class="number">20k</h4>	
-					</div>
-					<div class="options">
-						<img class="icon" src="images/logos/mail.png" alt="gallery">
-						<h4>Mail</h4>
-						<h4 class="number">0</h4>	
-					</div>
-				</div>
-				<div class="accountSetting">
-					<div class="options" onclick="Open('loginSignup')">
-						<img class="icon" src="images/logos/shuffle.png" alt="gallery">
-						<h4>Switch Account</h4>
-					</div>
-					<div class="options">
-						<img class="icon" src="images/logos/logout.png" alt="gallery">
-						<h4>Log out</h4>
-					</div>
-				</div>
-			</div>
-		</div>
+		<a href="#home" class="active">Home</a>
+		<a href="#store">Store</a>
+		<a href="#community">Community</a>
+		<a href="#mail">Mail</a>
+		<a href="#profile">Profile</a>
 	</nav>
-	<div class="loginSignup">
+	 <div class="loginSignup">
 		<span class="exitLS" onclick="Exit('loginSignup')"></span>
 		<!-- login -->
 		<div class="loginSignupBox login" id="login">
@@ -133,7 +71,264 @@
 		</div>
 	</div>
 	<div class="hero">
+		<img src="images/logos/banners/hero_banner2.png" alt="">
+		<h1 class="quote"></h1>
 	</div>
+	<div class="gallery">
+		<div class="row">
+			<div class="column" id="column1">
+				<!-- <div class="imageBox">
+					<img src="images/photos/photo1.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo3.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo5.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo7.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo1.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div> -->
+			</div>
+			<div class="column" id="column2">
+				<!-- <div class="imageBox">
+					<img src="images/photos/photo2.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo4.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo6.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo8.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo10.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div> -->
+			</div>
+			<div class="column" id="column3">
+				<!-- <div class="imageBox">
+					<img src="images/photos/photo12.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo10.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo8.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo6.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo4.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div> -->
+			</div>
+			<div class="column" id="column4">
+				<!-- <div class="imageBox">
+					<img src="images/photos/photo13.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo11.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo9.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo7.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div>
+				<div class="imageBox">
+					<img src="images/photos/photo5.jpg">
+					<div class="imageDetails">
+						<h3>username</h3>
+						<p>
+							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+						</p>
+						<button>
+							<p>10</p>
+						</button>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<button onclick="GenerateImages();">Load More..</button>
+	<script src="datas.js"></script>
 	<script src="main.js"></script>
+	<script src="Animations.js"></script>
 </body>
 </html>

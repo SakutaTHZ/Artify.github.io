@@ -12,233 +12,88 @@ body{
 	position: relative;
 	min-height: 100vh;
 }
+:root{
+	--main-color:#B1B2FF;
+	--secondary-color:#AAC4FF;
+	--soft-color:#D2DAFF;
+	--white:#EEF1FF;
+}
 
 nav{
-	display: flex;
 	position: fixed;
-	background: white;
-	top: 10px;
-	right: 0;
-	padding: 10px 20px;
-	border-radius: 10px 0 0 10px;
-	border-top: 1px solid rgba(0,0,0,0.3);
-	box-shadow: -3px 3px 8px rgba(0,0,0,0.3);
 	z-index: 1000;
-}
-
-.searchBar{
 	display: flex;
-	margin: 0 20px 0 0;
+	justify-content: center;
+	align-items: center;
+	right: 0;
+	background: linear-gradient(45deg,rgba(250, 235, 215, 0.8),rgba(250, 235, 215, 0.6),var(--main-color));
+	padding: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
-.searchBar input{
-	width: 200px;
-	height: 30px;
-	border: 0;
-	box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1),inset -0.5px -0.5px 5px rgba(0,0,0,0.2);
-	border-radius: 10px 0 0 10px;
+nav img{
+	width: 15px;
+	opacity: 45%;
+}
+nav .searchBox{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding: 0 10px;
 }
-.searchBar input:focus{
-	outline: 0;
-}
-.searchBar button{
+nav .searchBox input,button{
+	height: 35px;
 	border: 0;
-	border-radius: 0 10px 10px 0;
-	box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.3),inset -0.5px -0.5px 5px rgba(0,0,0,0.3);
-	height: 30px;
-	width: 30px;
-}
-.searchBar img{
-	transform: translateX(-2px);
-	opacity: 50%;
-	width: 15px;
-}
-.searchBar button:hover{
-	box-shadow: inset 2px 2px 5px rgba(63, 63, 63, 0.3),inset 0px 0px 1px rgba(0,0,0,0.3);
-}
-.searchBar button:hover img{
-	width: 13px;
-}
-
-.links{
-	display: flex;
-	flex-direction: row;
-}
-.links a{
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 30px;
-}
-.links img{
-	position: absolute;
-	width: 20px;
-	opacity: 50%;;
-}
-.links .title{
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transform: translateY(0px) translateX(-10px);
-	border: 2px solid rgba(0,0,0,0.3);
-	padding: 2px;
-	color: rgb(65, 65, 65);
-	letter-spacing: 0;
-	border-radius: 10px;
-	background: white;
-	font-weight: 200;
-	visibility: 0;
-	opacity: 0%;
-	box-shadow: inset -3px -3px 10px rgba(0,0,0,0.2);
-}
-.links a:hover .title{
-	visibility: visible;
-	opacity: 100%;
-	transform: translateY(40px) translateX(0);
-	padding: 5px 8px;
-	letter-spacing: 2px;
-}
-.links .title::before{
-	content: '';
-	position: absolute;
-	width: 15px;
-	height: 15px;
-	border: 2px solid rgba(0,0,0,0.3);
-	background: white;
-	top: -10px;
-	transform: rotate(45deg);
-	border-bottom: 0;
-	border-right: 0;
-}
-.links .indicator{
-	position: absolute;
-	width: 30px;
-	height: 30px;
-	background: rgba(0, 0, 0, 0.2);
-	outline: 5px solid rgba(0, 0, 0, 0.2);
-	transform: translateX(0);
-	border-radius: 10px;
-	z-index: -2;
-	left: 50%;
-	overflow: 0;
-}
-.links .active img{
-	filter: invert(1);
-}
-.links a:nth-child(1).active ~ .indicator{
-	transform: translateX(calc(60px * 0));
-}
-.links a:nth-child(2).active ~ .indicator{
-	transform: translateX(calc(60px * 1));
-}
-.links a:nth-child(3).active ~ .indicator{
-	transform: translateX(calc(60px * 2));
-}
-.links a:nth-child(4).active ~ .indicator{
-	transform: translateX(calc(60px * 3));
-}
-
-.profile{
-	position: relative;
-	display: flex;
-	margin-left: 10px;
-	border-radius: 50%;
-	box-shadow: 0 5px 5px rgba(0,0,0,0.2);
-}
-.profile img{
-	opacity: 70%;
-	width: 30px;
-}
-.activity{
-	width: 10px;
-	height: 10px;
-	position: absolute;
-	bottom: -1px;
-	right: -1px;
-	background: greenyellow;
-	border-radius: 50%;
-	border: 2px solid rgba(0,0,0,0.3);
-}
-
-.profileDetailBox{
-	position: absolute;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-	top: 135%;
-	right: -65%;
-	background: white;
-	box-shadow: -5px 5px 5px rgba(0,0,0,0.2);
-	width: 200px;
-	transform: scale(0) rotateX(180deg) rotateY(90deg);
-	transform-origin: top right;
-	border-radius: 0 0 0 20px;
-	font-size: 0.8em;
-}
-.profileDetailBox h4{
-	letter-spacing: 1px;
-}
-.profile:hover .profileDetailBox{
-	transform: scale(1) rotateX(0) rotateY(0);
-}
-.profileDetailBox .userRow{
-	position: relative;
-	width: 100%;
-	display: flex;
-	padding: 10px;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-}
-.profileDetailBox .userRow img{
-	width: 30px;
-	margin: 0 10px;
-	transform: translateY(3px);
-}
-.userRowDetails p{
-	width: 90%;
-	white-space: nowrap;
-  	overflow: hidden;
-	text-overflow: ellipsis;
-}
-.profileDetailBox .icon{
-	width: 20px;
-	height: 20px;
-	opacity: 50%;
-	margin: 0 15px 0 5px;
-}
-.profileDetailBox .personalRow{
-	width: 100%;
-	padding: 5px 5px 5px 15px;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-}
-.options{
-	position: relative;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	padding: 10px 5px;
-	border-radius: 20px;
-}
-.options:hover{
-	background: linear-gradient(45deg,rgba(0,0,0,0.2),rgba(255,255,255,0.4));
-	cursor: pointer;
-}
-.profileDetailBox .personalRow .options .number{
-	position: absolute;
 	padding: 5px;
-	right: 10px;
-	background-color: rgb(181, 181, 181);
+}
+nav .searchBox button{
+	z-index: 1001;
+	width: 35px;
+	background:linear-gradient(-45deg,var(--white),var(--soft-color));	
 	border-radius: 50%;
+	}
+nav .searchBox input{
+	z-index: 1000;
+	width: 0px;
+	background-color: var(--white);
+	transform: translateX(-20px);
+	padding:0;
+	border-radius: 0 30px 30px 0;
 }
-.profileDetailBoxRow{
-	position: relative;
-	height: 50px;
+nav .searchBox:hover input{
+	width: 200px;
+	padding: 0 25px;
+	transform: translateX(-20px);
 }
-.accountSetting{
-	width: 100%;
-	padding: 5px 5px 15px 15px;
+nav input:focus{
+	width: 200px;
+	padding: 0 25px;
+	transform: translateX(-20px);
+}
+nav .searchBox:hover button img{
+	transform: rotate(-360deg);
+}
+nav .searchBox input:focus{
+	outline: 10px var(--main-color);
+}
+
+nav a{
+	text-decoration: none;
+	margin: 0 10px;
+	color: rgba(32, 32, 49, 0.5);
+	padding: 3px 10px;
+	border-radius: 20px;
+	font-weight: bolder;
+}
+nav .active{
+	padding: 5px 10px;
+	background:linear-gradient(-45deg,#eef1ff76,#eef1ff6a);	
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1),inset 5px 3px 5px #eef1ff76;
+}
+nav a:hover{
+	padding: 5px 10px;
+	background:linear-gradient(-45deg,#eef1ff76,#eef1ff6a);	
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1),inset 5px 3px 5px #eef1ff76;
 }
 
 /* loginSignup */
@@ -412,11 +267,149 @@ nav{
 }
 
 .hero{
-	position: absolute;
+	position: relative;
 	top: 0;
 	width: 100vw;
-	height: 80vh;
-	background-image: url("images/logos/banners/hero_banner.png");
+	height: 40vw;
 	background-position: center;
 	background-size: cover;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #EEF1FF;
+}
+.hero img{
+	position: absolute;
+	bottom: -20%;
+	width: 100%;
+	z-index: -1;
+}
+.hero h1{
+	display: flex;
+	width: 80%;
+	background: rgba(66, 9, 58, 0.3);
+	padding: 20px;
+	font-size: 4vw;
+	font-weight: bolder;
+	text-align: center;
+	justify-content: center;
+	user-select: none;
+}
+.hero button{
+	position: absolute;
+	bottom: 10%;
+}
+
+.airplane{
+	position: absolute;
+	width: 10%;
+	transform: translate(0%, 500%);
+	transition: 0s;
+}
+
+/* gallery */
+.gallery{
+	width: 100vw;
+	padding: 40px;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+	flex: 25%;
+	max-width: 25%;
+	padding: 0 4px;
+  }
+  
+  .column img {
+	vertical-align: middle;
+	width: 100%;
+	pointer-events: none;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+	.column {
+	  flex: 50%;
+	  max-width: 50%;
+	}
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+	.column {
+	  flex: 100%;
+	  max-width: 100%;
+	}
+  }
+
+.imageBox{
+	margin-bottom: 10px;
+	position: relative;
+	border-radius: 20px;
+	overflow: hidden;
+	animation: popUp 2s;
+}
+@keyframes popUp {
+	0%{
+		margin-bottom: 30px;
+		opacity: 0%;
+	}
+	100%{
+		margin-bottom: 10px;
+		opacity: 100%;
+	}
+}
+.imageBox p{
+	font-size: 0.75em;
+}
+.imageBox h3{
+	margin-bottom: 10px;
+}
+.imageBox img{
+	border-radius: 20px;
+}
+.imageDetails{
+	width: 100%;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 7.5px 10px;
+	color: antiquewhite;
+	bottom: -100%;
+	opacity: 0;
+}
+.imageDetails button{
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	float: right;
+	background-image: url("images/logos/love.png");
+	background-size: 40px 40px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	width: 40px;
+	height: 40px;
+	border: 0;
+	font-size: 1em;
+	text-align: center;
+	color: azure;
+}
+.imageDetails button:hover{
+	background-image: url("images/logos/loveFull.png");
+	background-size: 35px 35px;
+}
+.imageBox:hover .imageDetails{
+	bottom: 0;
+	opacity: 100%;
+}
+.imageBox:hover{
+	transform: scale(1.05);
+	z-index: 69;
+	box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.201),-15px -15px 20px rgba(0, 0, 0, 0.201);
 }

@@ -62,3 +62,48 @@ function switchSides(where){
 		document.getElementById(`login`).style.display = "none";
 	}
 }
+
+var start = 1;
+
+var lastcolumn = 1;
+var maxImage = 11;
+var end = maxImage;
+function GenerateImages() {
+	var index = lastcolumn;
+	var imageIndex = start;
+	var maximum = end;
+	setInterval(() => {
+		if(imageIndex == maximum) {
+			return;
+			// do not put anything
+		}else if(index !== 5) {
+			var div = document.createElement("div");
+			div.classList.add("imageBox");
+			div.innerHTML = `
+			<img src="images/photos/photo${imageIndex}.jpg">
+			<div class="imageDetails">
+				<h3>username</h3>
+				<p>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
+				</p>
+				<button>
+					<p>10</p>
+				</button>
+			</div>
+			`
+			document.querySelector(`#column${index}`).appendChild(div);
+			// console.log(index)
+			index++;
+			imageIndex++;
+			lastcolumn = index;
+			
+		}else{
+			index = 1;
+		}
+	}, 200);
+	
+	start = end;
+	end = end + maxImage;
+	
+}
+GenerateImages();
