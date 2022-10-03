@@ -40,8 +40,9 @@ nav .searchBox{
 	justify-content: center;
 	align-items: center;
 	padding: 0 10px;
+	float: left;
 }
-nav .searchBox input,button{
+nav .searchBox input[type=text],button{
 	height: 35px;
 	border: 0;
 	padding: 5px;
@@ -52,7 +53,7 @@ nav .searchBox button{
 	background:linear-gradient(-45deg,var(--white),var(--soft-color));	
 	border-radius: 50%;
 	}
-nav .searchBox input{
+nav .searchBox input[type=text]{
 	z-index: 1000;
 	width: 0px;
 	background-color: var(--white);
@@ -60,12 +61,12 @@ nav .searchBox input{
 	padding:0;
 	border-radius: 0 30px 30px 0;
 }
-nav .searchBox:hover input{
+nav .searchBox:hover input[type=text]{
 	width: 200px;
 	padding: 0 25px;
 	transform: translateX(-20px);
 }
-nav input:focus{
+nav input[type=text]:focus{
 	width: 200px;
 	padding: 0 25px;
 	transform: translateX(-20px);
@@ -73,15 +74,15 @@ nav input:focus{
 nav .searchBox:hover button img{
 	transform: rotate(-360deg);
 }
-nav .searchBox input:focus{
+nav .searchBox input[type=text]:focus{
 	outline: 10px var(--main-color);
 }
 
 nav a{
 	text-decoration: none;
 	margin: 0 10px;
-	color: rgba(32, 32, 49, 0.5);
-	padding: 3px 10px;
+	color: rgba(32, 32, 49, 0.7);
+	padding: 5px 10px;
 	border-radius: 20px;
 	font-weight: bolder;
 }
@@ -95,6 +96,31 @@ nav a:hover{
 	background:linear-gradient(-45deg,#eef1ff76,#eef1ff6a);	
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1),inset 5px 3px 5px #eef1ff76;
 }
+.links{
+	display: flex;
+	justify-content: center;
+}
+.hamburger{
+	display: none;
+	z-index: 1003;
+	width: 30px;
+	height: 30px;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff95;
+	border-radius: 5px;
+}
+.hamburger img{
+	width: 25px;
+}
+#hamburger{
+	display: none;
+	z-index: 1005;
+	width: 30px;
+	height: 30px;
+	opacity: 0;
+}
+
 
 /* loginSignup */
 .loginSignup,.loginSignupBox,.loginSignupRow,.exitLS{
@@ -106,7 +132,7 @@ nav a:hover{
 }
 .loginSignup{
 	display: none;
-	position: absolute;
+	position: fixed;
 	background: rgba(128, 128, 128, 0.5);
 	width: 100vw;
 	height: 100vh;
@@ -115,34 +141,9 @@ nav a:hover{
 
 .loginSignup .exitLS{
 	position: absolute;
-	width: 30px;
-	height: 30px;
+	width: 100vw;
+	height: 100vh;
 	background: rgba(0, 0, 0, 0.2);
-	border-radius: 50%;
-	top: 20px;
-	right: 20px;
-	animation: spin 5s linear infinite;
-}
-@keyframes spin {
-	0%,6%,100%{
-		transform: rotate(0deg);
-	}
-	5%{
-		transform: rotate(360deg);
-	}
-}
-.exitLS::before,.exitLS::after{
-	content: '';
-	background: white;
-	position: absolute;
-	width: 5px;
-	height: 40px;
-	border-radius: 0;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	transform: rotate(45deg);
-}
-.exitLS::before{
-	transform: rotate(-45deg);
 }
 .loginSignupBox{
 	flex-direction: column;
@@ -150,8 +151,9 @@ nav a:hover{
 	width: 400px;
 	height: 400px;
 	background: white;
-	background-image: url("images/logos/ripped_grid.png");
+	background-image: url("images/logos/banners/hero_banner2.png");
 	background-position: top;
+	background-repeat: no-repeat;
 	background-size: contain;
 	border-radius: 20px;
 	overflow: hidden;
@@ -178,15 +180,12 @@ nav a:hover{
 .loginSignupBox h2{
 	font-size: xx-large;
 	font-weight: bolder;
-	color: rgba(0, 0, 0, 0.5);
+	color: rgba(255, 255, 255);
 	letter-spacing: 2px;
 	margin-bottom: 50px;
-}
-.loginSignupBox h2 span{
-	padding: 2px 5px 5px 5px;
-	margin-right: 5px;
-	border: 2px solid rgba(0, 0, 0, 0.3);
-	border-radius: 10px 15px 10px 15px;
+	background: rgba(52, 28, 123, 0.3);
+	padding: 10px 20px;
+	border-radius: 10px;
 }
 .loginSignupBox .loginSignupRow{
 	width: 200px;
@@ -282,7 +281,7 @@ nav a:hover{
 .hero img{
 	position: absolute;
 	bottom: -20%;
-	width: 100%;
+	width: 100vw;
 	z-index: -1;
 }
 .hero h1{
@@ -338,6 +337,7 @@ nav a:hover{
 	  flex: 50%;
 	  max-width: 50%;
 	}
+	
   }
   
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -349,7 +349,8 @@ nav a:hover{
   }
 
 .imageBox{
-	margin-bottom: 10px;
+	position: relative;
+	margin: 10px 10px 20px 10px;
 	position: relative;
 	border-radius: 20px;
 	overflow: hidden;
@@ -366,9 +367,13 @@ nav a:hover{
 	}
 }
 .imageBox p{
-	font-size: 0.75em;
+	font-size: 1vw;
+	height: 50%;
+	text-overflow: clip;
+	padding-bottom: 10px;
 }
 .imageBox h3{
+	font-size: 1.1vw;
 	margin-bottom: 10px;
 }
 .imageBox img{
@@ -376,33 +381,13 @@ nav a:hover{
 }
 .imageDetails{
 	width: 100%;
+	max-height: 50%;
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.4);
 	padding: 7.5px 10px;
 	color: antiquewhite;
 	bottom: -100%;
 	opacity: 0;
-}
-.imageDetails button{
-	position: absolute;
-	right: 3px;
-	top: 3px;
-	float: right;
-	background-image: url("images/logos/love.png");
-	background-size: 40px 40px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: transparent;
-	width: 40px;
-	height: 40px;
-	border: 0;
-	font-size: 1em;
-	text-align: center;
-	color: azure;
-}
-.imageDetails button:hover{
-	background-image: url("images/logos/loveFull.png");
-	background-size: 35px 35px;
 }
 .imageBox:hover .imageDetails{
 	bottom: 0;
@@ -412,4 +397,117 @@ nav a:hover{
 	transform: scale(1.05);
 	z-index: 69;
 	box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.201),-15px -15px 20px rgba(0, 0, 0, 0.201);
+}
+
+.viewOptionBox{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	margin: 20px 0 -10px 0;
+}
+.viewOptionBox button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: white;
+	padding: 10px;
+	margin: 0 10px;
+	width: 150px;
+	border-radius: 20px;
+	font-size: 1.0em;
+	font-weight: bold;
+	color: #1d1d1dab;
+	border: 1px solid var(--main-color);
+	filter: drop-shadow(0 3px 10px rgba(32, 49, 120, 0.233));
+}
+.viewOptionBox button:hover{
+	background: linear-gradient(-45deg,#AAC4FF,#809ee4) ;
+	font-weight: bold;
+	color: #EEF1FF;
+	border: 1px solid var(--main-color);
+}
+.viewOptionBox .active{
+	background: linear-gradient(-45deg,#AAC4FF,#809ee4) ;
+	font-weight: bold;
+	color: #EEF1FF;
+	border: 1px solid var(--main-color);
+}
+.load{
+	background-color: #809ee4;
+}
+
+@media only screen and (max-width: 750px) {
+	nav{
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		border-radius: 0;
+		padding: 20px 0;
+	}
+	.searchBox{
+		position: absolute;
+		left: 10px;
+	}
+	nav .searchBox input{
+		width: 200px;
+		padding: 0 25px;
+		transform: translateX(-20px);
+	}
+}
+@media only screen and (max-width: 700px) {
+	nav{
+		padding: 10px;
+		justify-content: flex-end;
+	}
+	.searchBox{
+		position: absolute;
+		top: 7.5px;
+		left: 10px;
+	}
+	.links{
+		position: absolute;
+		background-color: #aec8ffb7;
+		padding: 10px 10px;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		transform-origin: top ;
+		transform: translateX(10px) translateY(0px) scaleY(0);
+	}
+	.links a{
+		margin: 10px;
+		width: 100%;
+		text-align: center;
+	}
+	.hamburger{
+		display: flex;
+	}
+	#hamburger{
+		display: flex;
+		position: absolute;
+	}
+	#hamburger:checked ~ .links{
+		transform: translateX(10px) translateY(160px) scaleY(1);
+	}
+	.imageBox{
+		transform: scale(0.9);
+	}
+	.hero{
+		top: 50px;
+		height: 50vh;
+	}
+	.hero img{
+		width: 200vw;
+		top: 0;
+	}
+	.viewOptionBox{
+		display: flex;
+		justify-content: center;
+		padding: 10px;
+		margin: 70px 0 -40px 0;
+	}
+	.viewOptionBox button{
+		margin: 0 5px;
+	}
 }

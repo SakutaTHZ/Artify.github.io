@@ -8,7 +8,7 @@ function randomQuotes() {
         textIndex++;
         
         // console.log(text);
-        document.querySelector(".quote").innerHTML = "“" + text + "”";
+        document.querySelector(".quote").innerHTML = "" + text + "|";
         document.querySelector(".quote").addEventListener("click", () => {
             index = Math.floor(Math.random() * dialogue.length);
             text = '';

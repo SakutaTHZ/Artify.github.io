@@ -12,19 +12,26 @@
 			<button type="submit">
 				<img src="images/logos/search.png" alt="">
 			</button>
-			<input type="text" name="search" id="searchBox">
+			<input type="text" name="search" id="searchBox" placeholder="Search new ideas">
 		</div>
-		<a href="#home" class="active">Home</a>
-		<a href="#store">Store</a>
-		<a href="#community">Community</a>
-		<a href="#mail">Mail</a>
-		<a href="#profile">Profile</a>
+		<input type="checkbox" id="hamburger">
+		<button class="hamburger" type="submit">
+			<img src="images/logos/hamburger.png" alt="">
+		</button>
+		<div class="links">
+			<a href="#home" class="active">Home</a>
+			<a href="#store">Store</a>
+			<a href="#community">Community</a>
+			<a href="#mail">Mail</a>
+			<a href="#profile" onclick="Open('loginSignup')">Profile</a>
+		</div>
 	</nav>
+
 	 <div class="loginSignup">
 		<span class="exitLS" onclick="Exit('loginSignup')"></span>
 		<!-- login -->
 		<div class="loginSignupBox login" id="login">
-			<h2><span>Log</span>in</h2>
+			<h2><span>Log</span> in</h2>
 			<div class="loginSignupRow">
 				<input type="text" class="textBox" name="username" id="username" placeholder="Username">
 			</div>
@@ -42,7 +49,7 @@
 		</div>
 		<!-- signup -->
 		<div class="loginSignupBox signup" id="signup">
-			<h2><span>Sign</span>up</h2>
+			<h2><span>Sign</span> up</h2>
 			<div class="loginSignupRow">
 				<input type="text" class="textBox" name="email" id="email" placeholder="Email">
 			</div>
@@ -70,10 +77,18 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="hero">
 		<img src="images/logos/banners/hero_banner2.png" alt="">
 		<h1 class="quote"></h1>
 	</div>
+
+	<div class="viewOptionBox">
+		<button class="active">Your Feed</button>
+		<button >New Artists</button>
+		<button>Trending</button>
+	</div>
+
 	<div class="gallery">
 		<div class="row">
 			<div class="column" id="column1">
@@ -326,7 +341,11 @@
 			</div>
 		</div>
 	</div>
-	<button onclick="GenerateImages();">Load More..</button>
+
+	<div class="viewOptionBox load">
+		<button onclick="GenerateImages();">Load More..</button>
+	</div>
+
 	<script src="datas.js"></script>
 	<script src="main.js"></script>
 	<script src="Animations.js"></script>

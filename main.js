@@ -68,27 +68,29 @@ var start = 1;
 var lastcolumn = 1;
 var maxImage = 11;
 var end = maxImage;
+var ended = false
 function GenerateImages() {
 	var index = lastcolumn;
 	var imageIndex = start;
 	var maximum = end;
-	setInterval(() => {
-		if(imageIndex == maximum) {
-			return;
-			// do not put anything
-		}else if(index !== 5) {
+	if(ended) {
+		alert("No more Images to load ;(")
+		return;
+	}
+	var interval = setInterval(() => {
+		if(imageIndex == 33) {
+			clearInterval(interval)
+			ended = true
+		}else if(index !== 5 && imageIndex != maximum) {
 			var div = document.createElement("div");
 			div.classList.add("imageBox");
 			div.innerHTML = `
 			<img src="images/photos/photo${imageIndex}.jpg">
 			<div class="imageDetails">
-				<h3>username</h3>
+				<h3>Post Name</h3>
 				<p>
 					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta corrupti nemo ipsam debitis iusto ex facilis quas quia, eos possimus nam nisi fuga magni omnis. Sapiente nobis impedit alias esse.
 				</p>
-				<button>
-					<p>10</p>
-				</button>
 			</div>
 			`
 			document.querySelector(`#column${index}`).appendChild(div);
@@ -96,7 +98,6 @@ function GenerateImages() {
 			index++;
 			imageIndex++;
 			lastcolumn = index;
-			
 		}else{
 			index = 1;
 		}
