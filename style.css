@@ -120,6 +120,69 @@ nav a:hover{
 	height: 30px;
 	opacity: 0;
 }
+.mail{
+	position: relative;
+}
+.mailBox{
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	top: 120%;
+	right: -200%;
+	width: 250px;
+	min-height: 100px;
+	background-color: #809ee495;
+	border-radius: 10px;
+	padding: 15px 0;
+	filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+	transform: scaleY(0) rotatez(-90deg);
+	transform-origin: top;
+}
+.mails{
+	width: 90%;
+	min-height: 50px;
+	border: 2px solid rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
+	margin: 10px 0;
+	background-color: #D2DAFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.mails:hover{
+	transform: scale(1.05);
+}
+.counter{
+	position: absolute;
+	background-color: #EEF1FF80;
+	padding: 3px;
+	font-size: 0.7em;
+	border-radius: 10px;
+	top: -10px;
+	left: 80%;
+	border: 1px solid #EEF1FF;
+}
+.mails .profile{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1px solid white;
+	overflow: hidden;
+	margin: 3px;
+}
+.profile img{
+	width: 35px;
+}
+.mails p{
+	width: 80%;
+	padding: 0 3px;
+	font-size: 0.7em;
+}
+.mail:focus .mailBox{
+	transform: scaleY(1) rotatez(0deg);
+}
 
 
 /* loginSignup */
