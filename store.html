@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Artify</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Store</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="store.css">
 </head>
 <body>
 	<nav>
@@ -19,8 +21,8 @@
 			<img src="images/logos/hamburger.png" alt="">
 		</button>
 		<div class="links">
-			<a href="#home" class="active">Home</a>
-			<a href="store.html">Store</a>
+			<a href="index.html">Home</a>
+			<a href="store.html" class="active">Store</a>
 			<a href="#community">Community</a>
 			<a href="#mail" class="mail">
 				Mail <span class="counter">+5s</span>
@@ -54,8 +56,8 @@
 			<a href="#profile" onclick="Open('loginSignup')">Profile</a>
 		</div>
 	</nav>
-
-	 <div class="loginSignup">
+	<!-- login -->
+	<div class="loginSignup">
 		<span class="exitLS" onclick="Exit('loginSignup')"></span>
 		<!-- login -->
 		<div class="loginSignupBox login" id="login">
@@ -105,38 +107,110 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="hero">
-		<img src="images/logos/banners/hero_banner2.png" alt="">
-		<h1 class="quote"></h1>
-	</div>
-
-	<div class="viewOptionBox">
-		<button class="active">Your Feed</button>
-		<button >New Artists</button>
-		<button>Trending</button>
-	</div>
-
-	<div class="gallery">
-		<div class="row">
-			<div class="column" id="column1">
-			</div>
-			<div class="column" id="column2">
-			</div>
-			<div class="column" id="column3">
-			</div>
-			<div class="column" id="column4">
+	
+	<div class="row newArtistsRow">
+		<h2>Check out our new Artists</h2>
+		<div class="artistRow">
+			<div class="artistCard">
+				<div class="coverBox">
+					<img src="images/photos/photo14.jpg" alt="cover" class="coverPhoto">
+				</div>
+				<div class="profileBox">
+					<img src="images/photos/photo1.jpg" alt="profile">
+					<span></span>
+				</div>
+				<h5>Sakuta Seiya</h5>
+				<div class="artistCardRow">
+					Images Uploaded - <span>100</span>
+				</div>
+				<div class="artistCardRow">
+					Commissions done - <span>300</span>
+				</div>
+				<button>Check more ...</button>
 			</div>
 		</div>
 	</div>
 
-	<div class="viewOptionBox load">
-		<button onclick="GenerateImages();">Load More..</button>
+	<div class="leaderboards">
+		<div class="viewOptionBox">
+			<button class="active">Top Artists</button>
+			<button >Most Commissioned</button>
+			<button>Least Commissioned</button>
+		</div>
+		<div class="dataTable">
+			<div class="dataTableRow dataHeader">
+				<div class="dataTableColumn dataTableColumn1">
+					No
+				</div>
+				<div class="dataTableColumn dataTableColumn2">
+					Username
+				</div>
+				<div class="dataTableColumn dataTableColumn3">
+					Rating
+				</div>
+				<div class="dataTableColumn dataTableColumn4">
+					Points
+				</div>
+			</div>
+			<div class="dataTableRow">
+				<div class="dataTableColumn dataTableColumn1">
+					1
+				</div>
+				<div class="dataTableColumn dataTableColumn2">
+					John
+				</div>
+				<div class="dataTableColumn dataTableColumn3">
+					4 stars
+				</div>
+				<div class="dataTableColumn dataTableColumn4">
+					1,000,109
+				</div>
+			</div>
+			<div class="dataTableRow">
+				<div class="dataTableColumn dataTableColumn1">
+					2
+				</div>
+				<div class="dataTableColumn dataTableColumn2">
+					John
+				</div>
+				<div class="dataTableColumn dataTableColumn3">
+					4 stars
+				</div>
+				<div class="dataTableColumn dataTableColumn4">
+					1,000,109
+				</div>
+			</div>
+			<div class="dataTableRow">
+				<div class="dataTableColumn dataTableColumn1">
+					3
+				</div>
+				<div class="dataTableColumn dataTableColumn2">
+					John
+				</div>
+				<div class="dataTableColumn dataTableColumn3">
+					4 stars
+				</div>
+				<div class="dataTableColumn dataTableColumn4">
+					1,000,109
+				</div>
+			</div>
+			<div class="dataTableRow">
+				<div class="dataTableColumn dataTableColumn1">
+					4
+				</div>
+				<div class="dataTableColumn dataTableColumn2">
+					John
+				</div>
+				<div class="dataTableColumn dataTableColumn3">
+					4 stars
+				</div>
+				<div class="dataTableColumn dataTableColumn4">
+					1,000,109
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<script src="datas.js"></script>
 	<script src="main.js"></script>
-	<script src="Animations.js"></script>
-	<script src="imageGenerate.js"></script>
 </body>
 </html>

@@ -1,0 +1,142 @@
+:root{
+	--main-color:#B1B2FF;
+	--secondary-color:#AAC4FF;
+	--soft-color:#D2DAFF;
+	--white:#EEF1FF;
+}
+
+/* center Here */
+
+.row,.artistCard,.artistCardRow,.leaderboards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    min-height: 400px;
+    padding: 50px 10px 20px 10px;
+    width: 100%;
+}
+.newArtistsRow{
+    position: relative;
+    flex-direction: column;
+    letter-spacing: 2px;
+    background: linear-gradient(#888afb,#D2DAFF);
+}
+.newArtistsRow h2{
+    padding: 1em;
+    color: rgba(0, 0, 0, 0.5);
+}
+.artistRow{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.artistCard{
+    position: relative;
+    width: 200px;
+    min-height: 300px;
+    background-color: #EEF1FF;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.artistCard .profileBox{
+    z-index: 2;
+    margin-top: 20px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    text-align: center;
+}
+.artistCard .profileBox img{
+    width: 100%;
+    object-fit: cover;
+}
+.artistCard .profileBox span{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #54ff9e;
+    border: 3px solid  rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    top: 95px;
+    right: 25%;
+}
+.artistCard h5{
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+.artistCardRow{
+    margin: 5px 0;
+    width: 85%;
+    font-size: 0.7em;
+    justify-content: space-between;
+    letter-spacing: 1px;
+    background: #B1B2FF40;
+    padding: 5px;
+    border-radius: 10px;
+}
+.artistCardRow span{
+    background-color: #EEF1FF;
+    padding: 3px;
+    border-radius: 10px;
+}
+.artistCard button{
+    margin-top: 10px;
+    width: 85%;
+    background: linear-gradient(-45deg,#B1B2FF,#D2DAFF) ;
+    font-weight: bold;
+    color: #ffffff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+.artistCard button:hover{
+    background: linear-gradient(-90deg,#888afb,#abbafe) ;
+    border-radius: 10px;
+}
+.coverBox{
+    position: absolute;
+    width: 100%;
+    height: 42%;
+    overflow: hidden;
+    z-index: 1;
+}
+.coverBox img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.leaderboards{
+    gap: 20px;
+    width: 100%;
+    flex-direction: column;
+}
+.dataTable{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+.dataTableRow{
+    display: flex;
+    justify-content: center;
+}
+.dataTableColumn{
+    padding: 5px 10px;
+    border: 0.5px solid #EEF1FF;
+    text-align: center;
+}
+.dataHeader{
+    background: #888afb;
+}
+.dataTableColumn1,.dataTableColumn3,.dataTableColumn4{
+    width: 20%;
+}
+.dataTableColumn2{
+    width: 40%;
+}

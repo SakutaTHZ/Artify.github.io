@@ -531,7 +531,7 @@ nav a:hover{
 	background: white;
 	padding: 10px;
 	margin: 0 10px;
-	width: 150px;
+	min-width: 150px;
 	border-radius: 20px;
 	font-size: 1.0em;
 	font-weight: bold;
@@ -542,12 +542,14 @@ nav a:hover{
 .viewOptionBox button:hover{
 	background: linear-gradient(-45deg,#AAC4FF,#809ee4) ;
 	font-weight: bold;
+	text-shadow: 0 0 5px #809ee4;
 	color: #EEF1FF;
 	border: 1px solid var(--main-color);
 }
 .viewOptionBox .active{
 	background: linear-gradient(-45deg,#AAC4FF,#809ee4) ;
 	font-weight: bold;
+	text-shadow: 0 0 5px #809ee4;
 	color: #EEF1FF;
 	border: 1px solid var(--main-color);
 }
