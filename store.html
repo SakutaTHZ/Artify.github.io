@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Store</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="store.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/store.css">
 </head>
 <body>
 	<nav>
@@ -108,109 +108,80 @@
 		</div>
 	</div>
 	
-	<div class="row newArtistsRow">
-		<h2>Check out our new Artists</h2>
-		<div class="artistRow">
-			<div class="artistCard">
-				<div class="coverBox">
-					<img src="images/photos/photo14.jpg" alt="cover" class="coverPhoto">
-				</div>
-				<div class="profileBox">
-					<img src="images/photos/photo1.jpg" alt="profile">
-					<span></span>
-				</div>
-				<h5>Sakuta Seiya</h5>
-				<div class="artistCardRow">
-					Images Uploaded - <span>100</span>
-				</div>
-				<div class="artistCardRow">
-					Commissions done - <span>300</span>
-				</div>
-				<button>Check more ...</button>
+	<div class="rowsContainer">
+		<div class="row newArtistsRow">
+			<h2>Check out our new Artists</h2>
+			<div class="artistRow newArtists">
+	
 			</div>
+			<span class="whiteSpace"></span>
 		</div>
-	</div>
-
-	<div class="leaderboards">
-		<div class="viewOptionBox">
-			<button class="active">Top Artists</button>
-			<button >Most Commissioned</button>
-			<button>Least Commissioned</button>
+		<div class="row trendingArtistsRow">
+			<h2>Our Trending Artists</h2>
+			<div class="artistRow trendists">
+	
+			</div>
+			<span class="whiteSpace"></span>
 		</div>
-		<div class="dataTable">
-			<div class="dataTableRow dataHeader">
-				<div class="dataTableColumn dataTableColumn1">
-					No
-				</div>
-				<div class="dataTableColumn dataTableColumn2">
-					Username
-				</div>
-				<div class="dataTableColumn dataTableColumn3">
-					Rating
-				</div>
-				<div class="dataTableColumn dataTableColumn4">
-					Points
+		<div class="row leaderboards">
+			<div class="viewOptionBox">
+				<button class="view-button topbutton" onclick="change('top')">Top Artists</button>
+				<button class="view-button mostbutton" onclick="change('most')" >Most Commissioned</button>
+				<button class="view-button leastbutton" onclick="change('least')">Least Commissioned</button>
+			</div>
+			<div class="dataTable top">
+				<div class="dataTableRow dataHeader">
+					<div class="dataTableColumn dataTableColumn1">
+						No
+					</div>
+					<div class="dataTableColumn dataTableColumn2">
+						Username
+					</div>
+					<div class="dataTableColumn dataTableColumn3">
+						Rating
+					</div>
+					<div class="dataTableColumn dataTableColumn4">
+						Points
+					</div>
 				</div>
 			</div>
-			<div class="dataTableRow">
-				<div class="dataTableColumn dataTableColumn1">
-					1
-				</div>
-				<div class="dataTableColumn dataTableColumn2">
-					John
-				</div>
-				<div class="dataTableColumn dataTableColumn3">
-					4 stars
-				</div>
-				<div class="dataTableColumn dataTableColumn4">
-					1,000,109
-				</div>
-			</div>
-			<div class="dataTableRow">
-				<div class="dataTableColumn dataTableColumn1">
-					2
-				</div>
-				<div class="dataTableColumn dataTableColumn2">
-					John
-				</div>
-				<div class="dataTableColumn dataTableColumn3">
-					4 stars
-				</div>
-				<div class="dataTableColumn dataTableColumn4">
-					1,000,109
+			<div class="dataTable most">
+				<div class="dataTableRow dataHeader">
+					<div class="dataTableColumn dataTableColumn1">
+						No
+					</div>
+					<div class="dataTableColumn dataTableColumn2">
+						Username
+					</div>
+					<div class="dataTableColumn dataTableColumn3">
+						Rating
+					</div>
+					<div class="dataTableColumn dataTableColumn4">
+						Commissions
+					</div>
 				</div>
 			</div>
-			<div class="dataTableRow">
-				<div class="dataTableColumn dataTableColumn1">
-					3
-				</div>
-				<div class="dataTableColumn dataTableColumn2">
-					John
-				</div>
-				<div class="dataTableColumn dataTableColumn3">
-					4 stars
-				</div>
-				<div class="dataTableColumn dataTableColumn4">
-					1,000,109
-				</div>
-			</div>
-			<div class="dataTableRow">
-				<div class="dataTableColumn dataTableColumn1">
-					4
-				</div>
-				<div class="dataTableColumn dataTableColumn2">
-					John
-				</div>
-				<div class="dataTableColumn dataTableColumn3">
-					4 stars
-				</div>
-				<div class="dataTableColumn dataTableColumn4">
-					1,000,109
+			<div class="dataTable least">
+				<div class="dataTableRow dataHeader">
+					<div class="dataTableColumn dataTableColumn1">
+						No
+					</div>
+					<div class="dataTableColumn dataTableColumn2">
+						Username
+					</div>
+					<div class="dataTableColumn dataTableColumn3">
+						Rating
+					</div>
+					<div class="dataTableColumn dataTableColumn4">
+						Commissions
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<script src="main.js"></script>
+	<script src="js/datas/userdata.js"></script>
+	<script src="js/userGenerator.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
