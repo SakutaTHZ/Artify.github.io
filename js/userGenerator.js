@@ -48,7 +48,7 @@ function GenerateLeaderBoard(data, index, parent, important) {
 		${data.name}
 	</div>
 	<div class="dataTableColumn dataTableColumn3">
-		${data.rating} stars
+		${data.rating}
 	</div>
 	<div class="dataTableColumn dataTableColumn4">
 		${important}

@@ -12,7 +12,7 @@
 .rowsContainer{
     height: 100vh;
     overflow: auto;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
 }
 .row,.artistCard,.artistCardRow,.leaderboards{
     display: flex;
@@ -20,9 +20,11 @@
     align-items: center;
 }
 .row{
-    min-height: 635px;
+    position: relative;
+    min-height: 100vh;
     padding: 50px 10px 20px 10px;
     width: 100%;
+    overflow: auto;
     scroll-snap-align: center;
 }
 .newArtistsRow,.trendingArtistsRow{
@@ -44,6 +46,8 @@
 	background-size: cover;
 }
 .row h2{
+    position: absolute;
+    top: 45px;
     font-size: 2em;
     padding: 1em;
     color: rgba(255, 255, 255, 1);
@@ -56,13 +60,15 @@
     height: 50%;
     background: #fefefe;
     bottom: 0;
+    left: 0;
 }
 .artistRow{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 40px;
-    width: 100%;
+    width: 1000px;
     padding-bottom: 30px;
 }
 
@@ -174,11 +180,10 @@
     width: 100%;
     flex-direction: column;
     margin-bottom: 30px;
-    height: 635px;
 }
 .dataTable{
     border: 1px solid rgba(0, 0, 0, 0.1);
-    width:65%;
+    width:70%;
 }
 .dataTableRow{
     display: flex;
@@ -207,4 +212,23 @@
 }
 .dataTableColumn4{
     width: 25%;
+}
+.leaderboards_header{
+    position: absolute;
+    top: 70px;
+}
+@media only screen and (max-width: 700px) {
+    .row .whiteSpace{
+        width: 275%;
+    }
+    .leaderboards_header{
+        transform: scale(0.7);
+        top: 10px;
+    }
+    .dataTable{
+        width:95%;
+    }
+    .leaderboards_header button{
+        height: 45px;
+    }
 }
