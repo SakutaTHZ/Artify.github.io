@@ -1,5 +1,6 @@
 *{
     transition: 0.5s ease-in-out;
+    outline: none;
 }
 
 .toTop{
@@ -50,7 +51,6 @@
 .post{
     position: relative;
     width: 75%;
-    min-height: 100px;
     border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.3);
     box-shadow: 5px 5px 10px rgba(168, 0, 120, 0.2),
@@ -78,11 +78,13 @@
 }
 .body{
     padding: 15px;
+    width: 100%;
+    transform-origin: top;
 }
 .poll{
     display: flex;
     flex-direction: column;
-    min-width: 200px;
+    width: 100%;
     border: 1px solid rgba(0,0,0,0.3);
     padding: 5px 10px;
     border-radius: 10px;
@@ -107,11 +109,11 @@
 .lable{
     width: 100px;
 }
-.post .foot{
+.foot{
     width: 100%;
     bottom: 0;
     padding: 5px 10px;
-    justify-content: space-between;
+    justify-content: center;
     gap: 5px;
     font-size: 1em;
     border-top: 1px solid rgba(0,0,0,0.3);
@@ -175,6 +177,11 @@
     color: black;
     background: linear-gradient(45deg,#54fcff90,#fb88f190);
 }
+.lclicked{
+    color: aqua;
+    background: white;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
 .comment img{
     width: 30px;
     margin-right: 5px;
@@ -189,7 +196,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(126, 180, 224);
+    background: linear-gradient(45deg,#54fcff90,#fb88f190);
     min-width: 100%;
     height: 50px;
     left: 0;
@@ -200,7 +207,130 @@
     margin: 10px;
     width: 75px;
     border-radius: 10px;
+    outline: transparent;
 }
+.userPostText{
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+.userPostText:focus{
+    outline-color: rgb(159, 255, 223);
+}
+
+.addPost{
+    background: linear-gradient(45deg,#54fcff80,#ff54ee80);
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+.addPost:hover{
+    background: linear-gradient(45deg,#54fcff80,#54fcff80,#ff54ee80);
+}
+.uploadPost .body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.uploadPost .body .addPoll{
+    border: 1px solid rgba(0,0,0,0.3);
+    border-style: dotted;
+    border-radius: 0 0 10px 10px;
+    border-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.pollBox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg,#54fcff80,#ff54ee80);
+    opacity: 0;
+    transform: rotateY(90deg);
+}
+.pollBox input[type=text],.pollBox input[type=submit]{
+    height: 90%;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+.pollBox input[type=text]{
+    width: 80%;
+    border-radius: 5px 0 0 5px;
+    padding: 0 10px;
+    border-right: 0;
+}
+.pollBox input[type=submit]{
+    width: 40px;
+    border-radius: 0 5px 5px 0;
+}
+.pollArea{
+    border: 1px solid rgba(0,0,0,0.3);
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.uploadPost .body button:hover .pollBox{
+    opacity: 100%;
+    transform: rotateY(0);
+}
+.poll div{
+    width: 100%;
+    min-height: 30px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.delete{
+    position: absolute;
+    right: -40px;
+    height: 100%;
+    width: 30px;
+    background: tomato;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(90deg);
+    transform-origin: left;
+    transition: 0.1s;
+}
+.delete img{
+    width: 20px;
+    filter: invert(1);
+}
+.poll div:hover .delete{
+    transform: rotateY(0);
+}
+.cooldown{
+    position: fixed;
+    bottom: 0;
+    padding: 10px 15px;
+    border-radius: 0 20px 0 0;
+    color: #eeeeee;
+    background-color: rgba(255, 101, 74, 0.75);
+    animation: popRight 1s;
+}
+
+@keyframes popRight{
+    0%{
+        left: -200px;
+    }
+    100%{
+        left:0;
+    }
+}
+
 
 @media only screen and (max-width: 700px) {
     .commu-sec{

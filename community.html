@@ -112,8 +112,39 @@
 		<h1>What's trending Today ...</h1> 
 	</section>
 	<section class="newsfeed">
+		<div class="post uploadPost">
+			<div class="head">
+				<img src="images/profiles/profile5.jpg" alt="">
+				<p>Ninja</p>
+			</div>
+			<div class="body">
+				<textarea class="userPostText" id="addPost" rows="3" placeholder="What's on your mind?"></textarea>
+				<button class="addPoll">Add poll +
+					<div class="pollBox">
+						<input type="text"><input type="submit" value="Add">
+					</div>
+				</button>	
+				<div class="poll">
+					<div>
+						<span class="lable">Round</span>
+						<span>
+							0% <progress value="0" max="0"></progress>
+						</span>
+						<span class="delete">
+							<img src="images/logos/delete.png" alt="">
+						</span>
+					</div>
+				</div>
+				<button class="addPost" >
+					Add Post
+				</button>
+			</div>
+				
+		</div>
 		<!-- Automated task -->
 	</section>
+
+	<!-- <span class="cooldown">Please Wait for Cooldown</span> -->
 	
 	<script src="js/datas/userdata.js"></script>
 	<script src="js/main.js"></script>

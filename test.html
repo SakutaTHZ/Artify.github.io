@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing area</title>
+</head>
+<body>
+    <a href="community.html">click</a>
+    <div class="addPost">
+        Testing
+        <div>
+            <input type="text" name="" id="">
+            <div class="hiddenContent">
+                hello
+            </div>
+        </div> 
+    </div>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        div{
+            position: relative;
+            border: 1px solid black;
+        }
+        .addPost{
+            display: flex;
+            position: relative;
+        }
+        .addPost div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .addPost div:hover .hiddenContent{
+            position: relative;
+            transform: rotateX(0deg);
+        }
+        .hiddenContent{
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            background-color: aquamarine;
+            transform-style: preserve-3d;
+            transform: rotateX(90deg);
+        }
+    </style>
+</body>
+</html>

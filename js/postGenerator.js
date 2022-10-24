@@ -94,7 +94,6 @@ function OpenComment(id) {
 	<div class="userComment">
 		<input type="text" placeholder="Comment here ...">
 		<button class="commentButton" onclick="PostComment(${id})">></button>
-		<p class="message"></p>
 	</div>
 	${
 		fetchAllComment()
@@ -135,14 +134,14 @@ function addLike(id,num){
 }
 function commentLike(commentId, postId, operator, buttonClickedId){
 	buttonClickedId == 1 ? document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${2}`).disabled = true : document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${1}`).disabled = true
-	if(!document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${buttonClickedId}`).classList.contains("clicked")) {
+	if(!document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${buttonClickedId}`).classList.contains("lclicked")) {
 		posts[postId-1].details.comments[commentId].like += operator;
 		document.querySelector(`.comment${commentId}`).querySelector(`.commentLike`).innerHTML = posts[postId-1].details.comments[commentId].like;
-		document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${buttonClickedId}`).classList.add("clicked")
+		document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${buttonClickedId}`).classList.add("lclicked")
 	}else {
 		posts[postId-1].details.comments[commentId].like -= operator;
 		document.querySelector(`.comment${commentId}`).querySelector(`.commentLike`).innerHTML = posts[postId-1].details.comments[commentId].like;
-		document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${buttonClickedId}`).classList.remove("clicked")
+		document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${buttonClickedId}`).classList.remove("lclicked")
 		document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${1}`).disabled = false
 		document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${2}`).disabled = false
 	}
@@ -153,10 +152,7 @@ var messageCooldownSeconds = 0;
 
 function PostComment(postId) {
 	if(document.querySelector(`.post${postId}`).querySelector("input").value == "") {
-		document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = `You havn't written anything yet`
-		setTimeout(() => {
-			document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = ``
-		}, 800)
+		Cooldown(`Add something in the comment box`, "err");
 		return;
 	}else if(messageCooldownSeconds !== 0) {
 		return;
@@ -179,17 +175,40 @@ function PostComment(postId) {
 	div.innerHTML = sample;
 	document.querySelector(`.post${postId}`).appendChild(div);
 	messageCooldownSeconds = 60;
-	document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = `Cooling down`
-	Cooldown(postId);
+	
+	Cooldown(`Please wait ; seconds for another comment`, "var");
 }
 
-var Cooldown = (postId) => {
+var Cooldown = (message, type) => {
+	var span = document.createElement("span")
+	span.classList.add("cooldown");
+	span.innerHTML = "hmmmmmmmmmmm";
+	document.body.appendChild(span)
+	if(type == "err") {
+		console.log(message)
+		span.innerHTML = message;
+		setTimeout(() => {
+			span.style.left = -2000 + "px"
+			setTimeout(() => {
+				span.remove()
+			}, 400)
+		}, 1000)
+		return;
+	}
 	var interval = setInterval(() => {
+		
 		if(messageCooldownSeconds != 0) {
-			document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = `Please wait ${messageCooldownSeconds} seconds for another comment`
+			document.querySelector(".cooldown").style.left = 0 + "px"
+			if(type == "var") {
+				span.innerHTML = message.replace(";", messageCooldownSeconds);
+			}
+			
 			messageCooldownSeconds--;
 		}else {
-			document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = ``
+			span.style.left = -2000 + "px"
+			setTimeout(() => {
+				span.remove()
+			}, 400)
 			clearInterval(interval)
 		}
 		
