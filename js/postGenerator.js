@@ -1,16 +1,21 @@
 function GeneratePosts() {
 	var CheckIfTheresPoll = (poll) => {
+		var totalAmountOfPollResult = 0;
+		for (let i = 0; i < poll.length; i++) {
+			totalAmountOfPollResult+=poll[i].value
+		}
 		if(poll.length === 0) {
 			return " ";
 		}
 		var context = "";
 		for (let i = 0; i < poll.length; i++) {
+			var calculate = Math.round((poll[i].value / totalAmountOfPollResult) * 100)
 			if(poll !== []) {
 				context += `
 					<div>
 						<span class="lable">${poll[i].label}</span>
 						<span>
-							${poll[i].value}% <progress value="${poll[i].value}" max="100"></progress>
+							${calculate}% <progress value="${calculate}" max="100"></progress>
 						</span>
 					</div>
 				`;
@@ -21,11 +26,11 @@ function GeneratePosts() {
 		}
 	}
 	let shuffled = posts
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
-	
+	.map(value => ({ value, sort: Math.random() }))
+	.sort((a, b) => a.sort - b.sort)
+	.map(({ value }) => value);
 	shuffled.forEach(element => {
+		
 		var post = document.createElement("div");
 		post.classList.add(`post`)
 		post.classList.add(`post${element.postId}`)
@@ -88,6 +93,8 @@ function OpenComment(id) {
 	var sample = `
 	<div class="userComment">
 		<input type="text" placeholder="Comment here ...">
+		<button class="commentButton" onclick="PostComment(${id})">></button>
+		<p class="message"></p>
 	</div>
 	${
 		fetchAllComment()
@@ -140,4 +147,51 @@ function commentLike(commentId, postId, operator, buttonClickedId){
 		document.querySelector(`.comment${commentId}`).querySelector(`.commentbutt${2}`).disabled = false
 	}
 	
+}
+
+var messageCooldownSeconds = 0;
+
+function PostComment(postId) {
+	if(document.querySelector(`.post${postId}`).querySelector("input").value == "") {
+		document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = `You havn't written anything yet`
+		setTimeout(() => {
+			document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = ``
+		}, 800)
+		return;
+	}else if(messageCooldownSeconds !== 0) {
+		return;
+	}
+	var context = document.querySelector(`.post${postId}`).querySelector("input").value;
+	posts[postId-1].details.comments.push({user: GetCurrentUser, context: context, like: 0})
+	var div = document.createElement("div");
+	div.classList.add("comments")
+	var sample = `
+	<div class="comment comment${posts[postId-1].details.comments.length}">
+		<img src="${posts[postId-1].details.comments[posts[postId-1].details.comments.length-1].user.profileImg}" alt="">
+		<p>${posts[postId-1].details.comments[posts[postId-1].details.comments.length-1].context}</p>
+		<div class="commentReaction">
+			<button class="commentbutt1" onclick="commentLike(${posts[postId-1].details.comments.length-1}, ${postId}, 1, 1)">like</button>
+			<span class="commentLike">${posts[postId-1].details.comments[posts[postId-1].details.comments.length-1].like}</span>
+			<button class="commentbutt2" onclick="commentLike(${posts[postId-1].details.comments.length-1}, ${postId}, -1, 2)">dislike</button>
+		</div>
+	</div>
+	`
+	div.innerHTML = sample;
+	document.querySelector(`.post${postId}`).appendChild(div);
+	messageCooldownSeconds = 60;
+	document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = `Cooling down`
+	Cooldown(postId);
+}
+
+var Cooldown = (postId) => {
+	var interval = setInterval(() => {
+		if(messageCooldownSeconds != 0) {
+			document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = `Please wait ${messageCooldownSeconds} seconds for another comment`
+			messageCooldownSeconds--;
+		}else {
+			document.querySelector(`.post${postId}`).querySelector(".message").innerHTML = ``
+			clearInterval(interval)
+		}
+		
+	}, 1000)
 }

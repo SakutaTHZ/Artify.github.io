@@ -5,9 +5,9 @@ let posts = [
         details: {
             text: "what Should i do next",
             poll: [
-                {label: "Makima", value: 50},
-                {label: "Power", value: 30},
-                {label: "Denji", value: 20},
+                {label: "Makima", value: 7},
+                {label: "Power", value: 3},
+                {label: "Denji", value: 4},
             ],
             like: 10,
             comments: [

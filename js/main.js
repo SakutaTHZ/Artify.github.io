@@ -63,3 +63,9 @@ function switchSides(where){
 	}
 }
 
+const GetCurrentUser = users[Math.floor(Math.random() * users.length)];
+
+console.log(`
+	logged in as ${GetCurrentUser.name}
+`)
+
