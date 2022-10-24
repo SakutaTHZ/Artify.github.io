@@ -1,0 +1,198 @@
+*{
+    transition: 0.5s ease-in-out;
+}
+
+.toTop{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 1000;
+    background-image: url("/images/logos/up-arrow.png");
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+    opacity: 50%;
+}
+
+.commu-sec{
+    background: turquoise;
+    width: 100%;
+    height: 25vh;
+    padding: 50px;
+    background-image: url("/images/logos/banners/hero_banner3.jpg");
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.commu-sec h1{
+    color: antiquewhite;
+    text-shadow: 0 0 10px rgba(0,0,0,0.2),0 1px rgba(0,0,0,0.2);
+}
+
+.commu-sec,.newsfeed,.head,.foot,.comments,.userComment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsfeed{
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post{
+    position: relative;
+    width: 75%;
+    min-height: 100px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: 5px 5px 10px rgba(168, 0, 120, 0.2),
+    -5px -5px 10px rgba(0, 146, 168, 0.2);
+}
+
+.post .head{
+    padding: 5px 10px;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.follow{
+    margin-left: 5px;
+    font-size: 0.75em;
+    background: -webkit-linear-gradient(45deg,rgb(22, 239, 255), rgb(255, 13, 223));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+.follow:hover{
+    font-size: 0.8em;
+    background: -webkit-linear-gradient(45deg,rgb(0, 197, 211), rgb(202, 0, 175));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.body{
+    padding: 15px;
+}
+.poll{
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    gap: 5px;
+}
+.poll div{
+    display: flex;
+    justify-content: space-between;
+}
+.poll progress{
+    min-width: 100px;
+}
+.poll progress::-webkit-progress-bar {
+    background-color: #eeeeee;
+}
+
+.poll progress::-webkit-progress-value {
+    background-color: #039603 !important;
+}
+
+.lable{
+    width: 100px;
+}
+.post .foot{
+    width: 100%;
+    bottom: 0;
+    padding: 5px 10px;
+    justify-content: space-between;
+    font-size: 1em;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+.foot button{
+    border-radius: 10px;
+    width: 50%;
+}
+.foot button:hover,.foot button:focus{
+    background: linear-gradient(45deg,#54fcff90,#fb88f190);
+}
+
+.post .head img{
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.comments{
+    flex-direction: column;
+}
+.userComment{
+    width: 100%;
+    padding: 10px 0;
+}
+.userComment input{
+    width: 90%;
+    min-height: 75px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 0 10px;
+}
+.comment{
+    position: relative;
+    width: 90%;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.clicked{
+    color: black;
+    background: linear-gradient(45deg,#54fcff90,#fb88f190);
+}
+.comment img{
+    width: 30px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+.comment:hover .commentReaction{
+    opacity: 100%;
+}
+.commentReaction{
+    opacity: 0%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(126, 180, 224);
+    min-width: 100%;
+    height: 50px;
+    left: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+.commentReaction button{
+    margin: 10px;
+    width: 75px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+    .commu-sec{
+        height: 30vh;
+    }
+    .post{
+        width: 90%;
+    }
+}
