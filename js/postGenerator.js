@@ -1,5 +1,16 @@
 function GeneratePosts() {
-	var CheckIfTheresPoll = (poll) => {
+	document.querySelector('.newsfeed').insertAdjacentHTML('beforeend', `
+	<div class="post addPostDummy">
+		<div class="head">
+			<div>
+				<img src="${GetCurrentUser.profileImg}" alt="">
+				<p>${GetCurrentUser.name}</p>
+			</div>
+			<input type="text" name="" id="" placeholder="whats on your mind" onclick="openCreatePannel()">
+		</div>
+	</div>
+	`);
+	var CheckIfTheresPoll = (poll, postId) => {
 		var totalAmountOfPollResult = 0;
 		for (let i = 0; i < poll.length; i++) {
 			totalAmountOfPollResult+=poll[i].value
@@ -12,9 +23,9 @@ function GeneratePosts() {
 			var calculate = Math.round((poll[i].value / totalAmountOfPollResult) * 100)
 			if(poll !== []) {
 				context += `
-					<div>
+					<div class="postPoll" onclick="EditPoll(${i}, ${postId}, 1)">
 						<span class="lable">${poll[i].label}</span>
-						<span>
+						<span class="poller">
 							${calculate}% <progress value="${calculate}" max="100"></progress>
 						</span>
 					</div>
@@ -45,7 +56,7 @@ function GeneratePosts() {
 					${element.details.text}
 				</p>
 				${
-					CheckIfTheresPoll(element.details.poll)
+					CheckIfTheresPoll(element.details.poll, posts.indexOf(element))
 				}
 				
 			</div>
@@ -62,8 +73,36 @@ function GeneratePosts() {
 		post.innerHTML = Sample;
 		document.querySelector(".newsfeed").appendChild(post)
 	});
+	
 }
 GeneratePosts();
+
+function EditPoll(id, postId, operator) {
+	let totalAmountOfPollResult = 0;
+	posts[postId].details.poll[id].value += operator;
+	posts[postId].details.poll.forEach(element => {
+		totalAmountOfPollResult+=element.value
+	});
+	let allpostpollers = document.querySelector(`.post${postId+1}`).querySelectorAll(".poller")
+	let allpostpolls = document.querySelector(`.post${postId+1}`).querySelectorAll(".postPoll")
+	let calculate;
+	for (let i = 0; i < posts[postId].details.poll.length; i++) {
+		calculate = Math.round((posts[postId].details.poll[i].value / totalAmountOfPollResult) * 100)
+		allpostpollers[i].innerHTML = `
+		${calculate}% <progress value="${calculate}" max="100"></progress>
+		`
+		allpostpolls[id].classList.add("active")
+		allpostpolls[id].onclick = `EditPoll(${id}, ${postId}, ${-1})`
+		console.log(i)
+	}
+	
+}
+
+function openCreatePannel() {
+	document.querySelector(".poster").querySelector(".head").querySelector("img").src = GetCurrentUser.profileImg;
+	document.querySelector(".poster").querySelector(".head").querySelector("p").innerHTML = GetCurrentUser.name;
+	document.querySelector(".poster").classList.contains("hide") ? document.querySelector(".poster").classList.remove("hide") : document.querySelector(".poster").classList.add("hide")
+}
 
 function OpenComment(id) {
 	var fetchAllComment = () => {
